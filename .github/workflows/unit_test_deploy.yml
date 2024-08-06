@@ -28,3 +28,6 @@ jobs:
 
       - name: Run unit tests
         run: ./gradlew test
+      - name: Build APK
+        needs: unitTest
+        run: ./gradlew assembleDebug
