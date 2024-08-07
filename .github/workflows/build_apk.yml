@@ -35,7 +35,6 @@ jobs:
       - name: Build APK
         run: ./gradlew assembleDebug
       - name: Upload Apk
-        needs: buildApk
         uses: actions/upload-artifact@v3
         with:
           name: uploadDebugApk
