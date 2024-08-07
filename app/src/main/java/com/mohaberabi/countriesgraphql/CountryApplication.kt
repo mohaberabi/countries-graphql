@@ -10,7 +10,7 @@ class CountryApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
-
+// some
             androidContext(this@CountryApplication)
             androidLogger()
             modules(
