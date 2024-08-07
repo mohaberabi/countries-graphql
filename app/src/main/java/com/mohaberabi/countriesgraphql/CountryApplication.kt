@@ -11,6 +11,8 @@ class CountryApplication : Application() {
         super.onCreate()
         startKoin {
 // some
+
+            
             androidContext(this@CountryApplication)
             androidLogger()
             modules(
@@ -19,3 +21,4 @@ class CountryApplication : Application() {
         }
     }
 }
+

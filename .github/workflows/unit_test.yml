@@ -4,9 +4,13 @@ on:
     types:
       - opened
   workflow_dispatch:
-    
+#env:
+#  API_KEY:
+
 jobs:
   unitTest:
+    env:
+      API_KEY: ${{ secrets.API_KEY }}
     runs-on: ubuntu-latest
     steps:
       - name: Get The Code
