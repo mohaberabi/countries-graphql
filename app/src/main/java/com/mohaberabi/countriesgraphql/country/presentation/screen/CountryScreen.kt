@@ -1,5 +1,6 @@
 package com.mohaberabi.countriesgraphql.country.presentation.screen
 
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.window.Dialog
+import com.mohaberabi.countriesgraphql.BuildConfig
 import com.mohaberabi.countriesgraphql.country.presentation.compose.CountryDetails
 import com.mohaberabi.countriesgraphql.country.presentation.compose.CountryRow
 import com.mohaberabi.countriesgraphql.country.presentation.viewmodel.CountryActions
@@ -36,6 +38,12 @@ fun CountryScreenRoot(
 
     val context = LocalContext.current
 
+
+    LaunchedEffect(key1 = Unit) {
+
+        // simulate need  of buildConfig
+        Log.d("loser", BuildConfig.API_KEY)
+    }
     LaunchedEffect(
         key1 = viewModel.event,
     ) {
@@ -82,6 +90,9 @@ fun CountryScreen(
                 CountryStatus.Populated -> {
                     LazyColumn(
                     ) {
+                        item {
+
+                        }
                         items(state.countries) { country ->
 
                             CountryRow(

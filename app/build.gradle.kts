@@ -1,3 +1,7 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+import java.util.Properties
+
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -11,11 +15,15 @@ apollo {
     generateKotlinModels.set(true)
 
 }
+
+
 android {
+
     namespace = "com.mohaberabi.countriesgraphql"
     compileSdk = 34
 
     defaultConfig {
+
         applicationId = "com.mohaberabi.countriesgraphql"
         minSdk = 24
         targetSdk = 34
@@ -26,9 +34,16 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        val keystoreFile = project.rootProject.file("local.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+        val apiKey = properties.getProperty("apiKey") ?: ""
+        buildConfigField("String", "API_KEY", apiKey.fromPropFile)
+
     }
 
     buildTypes {
+
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -38,6 +53,7 @@ android {
         }
     }
     compileOptions {
+
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
@@ -46,8 +62,10 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
+
         kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
@@ -86,3 +104,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+val String.fromPropFile: String
+    get() = "\"$this\""
