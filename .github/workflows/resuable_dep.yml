@@ -1,0 +1,8 @@
+name: Resuable
+on: workflow_call
+jobs:
+  reuse:
+    runs-on: ubuntu-latest
+    stpes:
+      - name: Print
+        run: echo "hey loser"

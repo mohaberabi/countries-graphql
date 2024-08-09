@@ -1,0 +1,5 @@
+name: Use Reusable
+on: push
+jobs:
+  deploy:
+    uses: ./.github/workflows/reusable_dep.yml
