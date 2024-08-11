@@ -1,7 +1,7 @@
-#name: Use Reusable
-#on: push
-#jobs:
-#  deploy:
-#    uses: ./.github/workflows/resuable_dep.yml
-#    with:
-#      printedVal: Mohab The Loser
+name: Use Reusable
+on: push
+jobs:
+  deploy:
+    uses: ./.github/workflows/resuable_dep.yml
+    with:
+      printedVal: Mohab The Loser

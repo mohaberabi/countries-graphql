@@ -1,18 +1,18 @@
-#name: Resuable
-#on:
-#  workflow_call:
-#    inputs:
-#      printedVal:
-#        description: The name that will be printed out
-#        required: false
-#        default: Loser
-#        type: string
-#
-#
-#
-#jobs:
-#  reuse:
-#    runs-on: ubuntu-latest
-#    stpes:
-#      - name: Print
-#        run: echo "hey ${{ inputs.printedVal }}"
+name: Resuable
+on:
+  workflow_call:
+    inputs:
+      printedVal:
+        description: The name that will be printed out
+        required: false
+        default: Loser
+        type: string
+
+
+
+jobs:
+  reuse:
+    runs-on: ubuntu-latest
+    stpes:
+      - name: Print
+        run: echo "hey ${{ inputs.printedVal }}"
